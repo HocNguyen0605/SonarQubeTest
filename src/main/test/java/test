@@ -1,0 +1,33 @@
+package com.example;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorTest {
+
+    Calculator calculator = new Calculator();
+
+    @Test
+    void testAdd() {
+        assertEquals(5, calculator.add(2, 3));
+    }
+
+    @Test
+    void testDivide() {
+        assertEquals(2, calculator.divide(4, 2));
+    }
+
+    @Test
+    void testIsEven() {
+        assertTrue(calculator.isEven(4));
+        assertFalse(calculator.isEven(5));
+    }
+
+    // Test case lỗi (edge case)
+    @Test
+    void testDivideByZero() {
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(5, 0);
+        });
+    }
+}
